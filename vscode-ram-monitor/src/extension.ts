@@ -35,9 +35,11 @@ class MemoryUsageProvider implements vscode.TreeDataProvider<vscode.TreeItem> {
             new vscode.TreeItem(`${extension.packageJSON.displayName}`) // Puedes usar `extension.packageJSON.displayName` para un nombre más amigable
         );
 
-        // obtengo la cantidad de ram usada por cada extension
+        // obtengo la cantidad de ram usada por cada extension y muestro solo las 5 primeras y le pongo enumero al lado
+  
+
         const memoryUsageExtensions = vscode.extensions.all.map(extension =>
-            new vscode.TreeItem(`${extension.packageJSON.displayName}:RAM ${extension.extensionKind}`) // Puedes usar `extension.packageJSON.displayName` para un nombre más amigable
+            new vscode.TreeItem(`-. ${extension.packageJSON.displayName}:RAM ${extension.extensionKind}`) // Puedes usar `extension.packageJSON.displayName` para un nombre más amigable
         );
 
 
