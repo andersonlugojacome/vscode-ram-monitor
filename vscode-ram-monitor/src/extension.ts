@@ -1,34 +1,55 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+
 export function activate(context: vscode.ExtensionContext) {
+    const memoryUsageProvider = new MemoryUsageProvider();
+    vscode.window.registerTreeDataProvider('memoryUsageView', memoryUsageProvider);
+    vscode.commands.registerCommand('memoryUsageView.refresh', () => memoryUsageProvider.refresh());
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vscode-ram-monitor" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('vscode-ram-monitor.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from vscode-ram-monitor!');
-	});
-
-	context.subscriptions.push(disposable);
-
-	// utiliza la API de VS Code para crear un elemento en la barra de estado.
-	const myStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-	myStatusBarItem.text = `$(megaphone) Hello World`;
-	myStatusBarItem.command = 'vscode-ram-monitor.helloWorld';
-	myStatusBarItem.show();
-	
-
+    setInterval(() => memoryUsageProvider.refresh(), 10000); // Actualización automática cada 10 segundos
 }
 
-// This method is called when your extension is deactivated
-export function deactivate() {}
+class MemoryUsageProvider implements vscode.TreeDataProvider<vscode.TreeItem> {
+    // private _onDidChangeTreeData: vscode.EventEmitter<vscode.TreeItem | undefined> = new vscode.EventEmitter<vscode.TreeItem | undefined>();
+    // readonly onDidChangeTreeData: vscode.Event<vscode.TreeItem | undefined> = this._onDidChangeTreeData.event;
+
+    private _onDidChangeTreeData: vscode.EventEmitter<vscode.TreeItem | undefined | void> = new vscode.EventEmitter<vscode.TreeItem | undefined | void>();
+    readonly onDidChangeTreeData: vscode.Event<vscode.TreeItem | undefined | void> = this._onDidChangeTreeData.event;
+
+    refresh(): void {
+        this._onDidChangeTreeData.fire();
+    }
+
+    getTreeItem(element: vscode.TreeItem): vscode.TreeItem {
+        return element;
+    }
+
+    getChildren(): Thenable<vscode.TreeItem[]> {
+        const memoryUsage = process.memoryUsage().heapUsed / 1024 / 1024; // Convertir a MB
+        const usageItem = new vscode.TreeItem(`Memory Usage: ${memoryUsage.toFixed(2)} MB`);
+        const refreshItem = new vscode.TreeItem("Actualizar Memoria Usada", vscode.TreeItemCollapsibleState.None);
+        refreshItem.command = { command: 'memoryUsageView.refresh', title: "Actualizar" };
+
+        // Obtener la lista de extensiones instaladas
+        const extensions = vscode.extensions.all.map(extension =>
+            new vscode.TreeItem(`${extension.packageJSON.displayName}`) // Puedes usar `extension.packageJSON.displayName` para un nombre más amigable
+        );
+
+        // obtengo la cantidad de ram usada por cada extension
+        const memoryUsageExtensions = vscode.extensions.all.map(extension =>
+            new vscode.TreeItem(`${extension.packageJSON.displayName}:RAM ${extension.extensionKind}`) // Puedes usar `extension.packageJSON.displayName` para un nombre más amigable
+        );
+
+
+        // verifico si hay extensiones instaladas
+        if (extensions.length === 0) {
+            return Promise.resolve([usageItem, refreshItem, new vscode.TreeItem("No hay extensiones instaladas")]);
+        } 
+            // solo imprimo 5 extensiones instaladas en el editor y le pongo al lado la cantidad de ram que usa cada una
+            return Promise.resolve([usageItem, refreshItem, ...memoryUsageExtensions.slice(0, 5)]);
+            //return Promise.resolve([usageItem, refreshItem, ...extensions.slice(0, 5)]);
+            //return Promise.resolve([usageItem, refreshItem, ...extensions]);
+            //return Promise.resolve([usageItem, refreshItem]);
+       
+    }
+}
