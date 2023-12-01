@@ -5,7 +5,6 @@ export function activate(context: vscode.ExtensionContext) {
     const memoryUsageProvider = new MemoryUsageProvider();
     vscode.window.registerTreeDataProvider('memoryUsageView', memoryUsageProvider);
     vscode.commands.registerCommand('memoryUsageView.refresh', () => memoryUsageProvider.refresh());
-
     setInterval(() => memoryUsageProvider.refresh(), 10000); // Actualización automática cada 10 segundos
 }
 
