@@ -1,71 +1,48 @@
 # vscode-ram-monitor README
 
-This is the README for your extension "vscode-ram-monitor". After writing up a brief description, we recommend including the following sections.
 
-## Features
+# VSCode Memory Tracker
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+VSCode Memory Tracker es una extensión innovadora para Visual Studio Code que te permite monitorizar en tiempo real el uso de memoria de VS Code y sus extensiones. Con una interfaz intuitiva integrada en el explorador de VS Code, esta herramienta es esencial para desarrolladores que buscan optimizar el rendimiento de su entorno de desarrollo.
+Características
 
-For example if there is an image subfolder under your extension project workspace:
+   -. Monitor de Memoria en Tiempo Real: Visualiza el uso actual de memoria de VS Code directamente en el explorador.
+   -. Actualización Automática: La información de memoria se actualiza automáticamente cada 10 segundos.
+   -. Actualización Manual: Incluye un botón para actualizar manualmente el uso de memoria.
+   -. Listado de Extensiones: Muestra una lista de todas las extensiones instaladas en VS Code.
 
-\!\[feature X\]\(images/feature-x.png\)
+# Requisitos Previos
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+   -. Visual Studio Code versión 1.50 o superior.
 
-## Requirements
+# Instalación
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+    Abre Visual Studio Code.
+    Navega a la sección Extensions.
+    Busca "VSCode Memory Tracker".
+    Haz clic en Install.
+    Una vez instalada, la extensión estará disponible en el explorador de VS Code.
 
-## Extension Settings
+# Uso
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Después de la instalación, encontrarás una nueva sección en el explorador de VS Code llamada "Memory Usage". Aquí podrás ver el uso actual de memoria y una lista de las extensiones instaladas. Utiliza el botón "Actualizar Memoria Usada" para refrescar manualmente la información.
+Contribuir
 
-For example:
+Si estás interesado en contribuir a VSCode Memory Tracker, ¡tu ayuda es bienvenida!
 
-This extension contributes the following settings:
+    Reporte de Bugs: Reporta los errores en la sección de Issues de nuestro repositorio de GitHub.
+    Solicitudes de Características: Si tienes ideas para mejorar la extensión, por favor compártelas en GitHub.
+    Desarrollo: Clona el repositorio y consulta nuestra guía de contribución para configurar tu entorno de desarrollo.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+# Soporte
 
-## Known Issues
+Para obtener soporte, por favor abre un issue en nuestro repositorio de GitHub o envía un correo electrónico a info@digitalesweb.com.
+Licencia
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Esta extensión se distribuye bajo la licencia MIT. Consulta el archivo LICENSE en nuestro repositorio de GitHub para más información.
+Créditos
 
-## Release Notes
+Agradecimientos especiales a la comunidad de desarrolladores de Visual Studio Code y a todos los colaboradores de este proyecto.
+Registro de Cambios
 
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Para ver un registro detallado de los cambios de cada versión, consulta el archivo CHANGELOG.md en nuestro repositorio de GitHub.
