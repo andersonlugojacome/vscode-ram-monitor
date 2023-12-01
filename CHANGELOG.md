@@ -1,3 +1,4 @@
+# Change Log
 Cambios en VSCode Memory Tracker
 
 [Unreleased]

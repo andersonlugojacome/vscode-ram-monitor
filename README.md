@@ -1,6 +1,7 @@
-# vscode-ram-monitor
+# vscode-ram-monitor README
 
-VSCode Memory Tracker
+
+# VSCode Memory Tracker
 
 VSCode Memory Tracker es una extensión innovadora para Visual Studio Code que te permite monitorizar en tiempo real el uso de memoria de VS Code y sus extensiones. Con una interfaz intuitiva integrada en el explorador de VS Code, esta herramienta es esencial para desarrolladores que buscan optimizar el rendimiento de su entorno de desarrollo.
 Características
@@ -10,11 +11,11 @@ Características
    -. Actualización Manual: Incluye un botón para actualizar manualmente el uso de memoria.
    -. Listado de Extensiones: Muestra una lista de todas las extensiones instaladas en VS Code.
 
-Requisitos Previos
+# Requisitos Previos
 
    -. Visual Studio Code versión 1.50 o superior.
 
-Instalación
+# Instalación
 
     Abre Visual Studio Code.
     Navega a la sección Extensions.
@@ -22,7 +23,7 @@ Instalación
     Haz clic en Install.
     Una vez instalada, la extensión estará disponible en el explorador de VS Code.
 
-Uso
+# Uso
 
 Después de la instalación, encontrarás una nueva sección en el explorador de VS Code llamada "Memory Usage". Aquí podrás ver el uso actual de memoria y una lista de las extensiones instaladas. Utiliza el botón "Actualizar Memoria Usada" para refrescar manualmente la información.
 Contribuir
@@ -33,7 +34,7 @@ Si estás interesado en contribuir a VSCode Memory Tracker, ¡tu ayuda es bienve
     Solicitudes de Características: Si tienes ideas para mejorar la extensión, por favor compártelas en GitHub.
     Desarrollo: Clona el repositorio y consulta nuestra guía de contribución para configurar tu entorno de desarrollo.
 
-Soporte
+# Soporte
 
 Para obtener soporte, por favor abre un issue en nuestro repositorio de GitHub o envía un correo electrónico a info@digitalesweb.com.
 Licencia
